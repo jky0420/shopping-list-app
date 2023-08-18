@@ -35,8 +35,8 @@ header h1 {
 }
 
 .edit-mode {
-  color: purple;
-  background-color: yellow;
+  color: #ccc;
+  background-color: #D5E3E8;
 }
 
 /* Form & Input */
