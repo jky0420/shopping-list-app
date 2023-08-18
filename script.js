@@ -36,7 +36,13 @@ function addItem(e) {
     itemToEdit.classList.remove('edit-mode');
     itemToEdit.remove();
     isEditMode = false;
-  }
+  } else {
+    if (checkIfItemExists(newItem)) {
+      alert('That item already exists!');
+      itemInput.value = '';
+      return;
+    }
+  } 
 
 
   const button = createButton("remove-item btn-link text-red");
@@ -197,6 +203,20 @@ function addItemToStorage(item) {
   // Convert to JSON string and set to localStorage
   localStorage.setItem('items', JSON.stringify(itemsFromStorage));
 }
+
+
+function checkIfItemExists(item) {
+  const itemsFromStorage = getItemsFromStorage();
+
+  // if (itemsFromStorage.includes(item)) {
+  //   return true;
+  // } else {
+  //   return false;
+  // }
+  return itemsFromStorage.includes(item);
+}
+
+
 
 // Event Listeners
 itemForm.addEventListener('submit', addItem);
